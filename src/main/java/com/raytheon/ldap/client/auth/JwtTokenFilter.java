@@ -37,7 +37,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
 			LdapUser user = null;
 			try {
-				user = (LdapUser) jwtUserDetailsService.loadUserByUsername(token, email);
+				user = jwtUserDetailsService.loadUserByUsername(token, email);
 			} catch (UsernameNotFoundException e) {
 				throw new UserNotFoundException();
 			} catch (URISyntaxException e) {
